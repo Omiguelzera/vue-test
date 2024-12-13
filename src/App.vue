@@ -136,7 +136,23 @@ import guaxinimComum from '@/assets/Guaxinim-Comum.jpg';
 import guaxinimAlbino from '@/assets/Guaxinim-Albino-2.0.jpg';
 import guaxinimGigante from '@/assets/Guaxinim-Gigante.jpg';
 
+import CustomCursor from 'custom-cursor'
+import raccoonImg from '@/assets/raccoon.png'
+
 export default {
+
+    mounted(){
+        new CustomCursor({
+        container: document.body,
+        targets: ['*'],
+        visible: true,
+        hideNativeCursor: true,
+        speed: 0.2,
+        shape: 'circle',
+        image: raccoonImg,
+        })
+    },
+
   components: {
       GuaxininsDetalhes
   },   
