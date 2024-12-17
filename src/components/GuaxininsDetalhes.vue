@@ -1,110 +1,81 @@
-<template>
-    <div class="modal" @click.self="fechar">
-        <div class="modal-content">
-            <h2>{{ guaxinin.nome }}</h2>
-            <img :src="guaxinin.imagem" :alt="guaxinin.nome" class="guaxinim-img">
-            <p>{{ guaxinin.detalhes }}</p>
-            <button @click="fechar">Fechar</button>
+<template>     
+     <div class="detalhes-overlay" @click.self="$emit('fechar')">
+      <div class="detalhes-modal">
+        <button class="close-button" @click="$emit('fechar')">&times;</button>
+        <h2>{{ guaxinin.nome }}</h2>
+        <div class="guaxiin-image">
+            <img :src="guaxinin.imagem" :alt="guaxinin.nome"  />
         </div>
-    </div>
-</template>
-
-<script>
-export default {
+        <p>{{ guaxinin.detalhes }}</p>
+      </div>
+     </div>
+  </template>
+  
+  <script>
+  export default {
     props: {
-        guaxinin: Object
-    },
-    methods: {
-        fechar() {
-            this.$emit('fechar');
-        }
+      guaxinin: {
+        type: Object,
+        required: true
+      }
     }
-};
-</script>
+  };
+  </script>
+  
+  <style scoped>
 
-<style scoped>
-h2:before {
-  content: '🐾 '; 
-  font-size: 1.5rem;
-}
-
-h2:after {
-  content: ' 🐾'; 
-  font-size: 1.5rem;
-}
-
-p:before{
-    content: '🐾';
-    font-size: 1.5rem;
-}
-
-p:after{
-    content: ' 🐾';
-    font-size: 1.5rem;
-}
-
-.modal {
+  .detalhes-overlay {
     position: fixed;
-    top: 30px;
+    top: 0;
     left: 0;
-    right: 25px;
-    bottom: 0;
-    background: rgba(0, 0, 0, 0.5);
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.9);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 1000;
+  }
+  .detalhes-modal {
+    background: white;
+    padding: 35px;
+    border-radius: 20px;
+    max-width: 500px;
+    width: 100%;
+    height: 600px;
+    box-shadow: 0 4px 16px rgba(0, 0, 0, 0.2);
+  }
+  .detalhes-modal h2 {
+    color:#000000;
+    font-size: 1.5rem;
+  }
+  .detalhes-modal p {
+    width: 100%;
+    height: 50px;
+    color: #333;
+    font-size: 70%; 
+  }
+
+  .close-button {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    background: transparent;
+    border: none;
+    font-size: 1.5rem;
+    cursor: pointer;
+    color: #333;
+  }
+  .close-button:hover {
+    color: #000;
+  }
+ .guaxiin-image {
     display: flex;
     justify-content: center;
-    align-items: center;
-    z-index: 999;
-}
-.modal-content {
-    font-family: 'Comic Sans MS', sans-serif;
-    font-size: 1rem;
-    color: #333;
-    background-color: #f5f5f5;
-    border: 5px solid #333;
-    padding: 20px;
-    border-radius: 5px;
-    max-width: 600px;
-    width: 100%;
-}
-button {
-    background-color: #333;
-    color: white;
-    border:none;
-    padding: 10px 20px;
-    margin: 10px 0;
-    cursor: pointer;
-    border-radius: 10px;
-    transition: all 0.3s ease;
-}
-.guaxinim-img {
-    width:50%;
-    max-width: 80%;
-    justify-content: center;
-    height: auto;
-    border-radius: 30px;
-    box-shadow: 1px 1px 10px -1px #000000;
-}
+    margin-bottom: 20px;
+    border: 40px;
+  }
 
-@media (max-width: 768px) {
-    .modal-content {
-        padding: 15px;
-        font-size: 0.9rem; /* Reduz o tamanho do texto */
-    }
-    button {
-        padding: 8px 15px;
-    }
-}
-
-@media (max-width: 480px) {
-    .modal-content {
-        padding: 10px;
-        font-size: 0.8rem;
-    }
-    h2 {
-        font-size: 1.2rem; /* Reduz o tamanho do título */
-    }
-    button {
-        padding: 6px 12px;
-    }
-}
-</style>
+  
+  </style>
+  
