@@ -1,12 +1,12 @@
 import { createRouter, createWebHistory } from "vue-router";
-import PageGuaxinim from "@/components/PageGuaxinim.vue";
+import PageGuaxinim from "@/PageGuaxinim.vue";
 import AppContainer from "@/AppContainer.vue";
 
 
 const routes= [
     {path: '/', redirect: '/login'},
     {path: '/login', component: AppContainer},
-    {path: '/app', component: PageGuaxinim}
+    {path: '/guaxinim', component: PageGuaxinim}
 ];
 
 const router = createRouter({

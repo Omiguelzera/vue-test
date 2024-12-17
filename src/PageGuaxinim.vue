@@ -46,6 +46,7 @@
   import guaxinimGigante from '@/assets/Guaxinim-Gigante.jpg';
   
   export default {
+    name: 'PageGuaxinim',
     components: {
       GuaxininGallery,
       GuaxininsDetalhes

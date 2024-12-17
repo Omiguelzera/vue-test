@@ -20,6 +20,7 @@
 
 <script>
 export default {
+    name: 'AppContainer',
   data() {
       return {
           username: 'Guaxinim',
@@ -29,7 +30,7 @@ export default {
   methods: {
       HandleLogin() {
           if(this.username === this.username && this.password === this.password) {
-              this.$router.push('/app');
+              this.$router.push('/guaxinim');
           }else{
               alert('Invalid username or password');
           }
